@@ -1,7 +1,12 @@
 import { ActivatedRoute, Params } from "@angular/router";
-import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ChangeDetectorRef,
+  ChangeDetectionStrategy
+} from "@angular/core";
 import { PlayVideoService } from "../service/playVideo.service";
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject } from "rxjs";
 
 @Component({
   selector: "app-play",
@@ -9,35 +14,35 @@ import { Observable, Subject } from 'rxjs';
   styleUrls: ["./play.component.css"]
 })
 export class PlayComponent implements OnInit {
-
-  showList;
-  title=new Subject();
+  title;
   videoId;
   vType;
   description: string;
   publishedDateTime: string;
   youtubeId;
-
+  showList;
   constructor(
     private route: ActivatedRoute,
     private playService: PlayVideoService,
-    private change:ChangeDetectorRef
+    private change: ChangeDetectorRef
   ) {
     // this.route.params.subscribe((params: Params) => {
     //   this.youtubeId = params["videoId"];
     //   console.log(this.youtubeId);
     // });
-    this.title.next('hwllo')
-    this.playService.playVideoSelected.subscribe(v => {
-    
-      this.showList = v;
-      console.log(this.showList);
-      this.title.next(v.title) ;
-      console.log(this.title);
-    });
+    // this.title.next("hwllo");
   }
 
   ngOnInit() {
+    console.log("oninit");
+    console.log(this);
+    this.showList = {
+      title: "test"
+    };
+
+    this.playService.playVideoSelected.subscribe(v => {
+      this.showList = v;
+    });
     //get youtubeId
     // this.route.params.subscribe((params: Params) => {
     //   this.youtubeId = params["v"];

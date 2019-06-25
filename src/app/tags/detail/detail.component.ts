@@ -30,6 +30,6 @@ export class DetailComponent implements OnInit {
   }
   playVideo(v) {
     console.log(v);
-    this.playService.playVideoSelected.emit(v);
+    this.playService.playVideoSelected.next(v);
   }
 }
