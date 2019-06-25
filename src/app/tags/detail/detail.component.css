@@ -1,0 +1,8 @@
+.col-md-4 {
+  display: inline;
+  border: solid 1px #e5e5e5;
+}
+.col-md-4 img {
+  height: 156px;
+  width: 278px;
+}

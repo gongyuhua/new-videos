@@ -1,0 +1,44 @@
+.col-md-5 {
+  height: 552px;
+  width: 475px;
+  padding: 250px 50px;
+}
+.col-md-5 img {
+  vertical-align: middle;
+  width: 250px;
+  height: 49.06px;
+  box-sizing: border-box;
+}
+.col-md-7 {
+  background-color: #cee3ed;
+  padding: 0px 15px;
+  height: 775px;
+  width: 475px;
+}
+.col-md-7 h5 {
+  color: #555555;
+  font: 16px;
+  margin: 0px 0px 35px;
+}
+form {
+  border: 1px solid black;
+  text-align: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  height: 450px;
+  width: 390px;
+  vertical-align: middle;
+}
+form h3 {
+  font: 22px;
+}
+form button {
+  background-color: #173b6b;
+  padding: 6px 8px;
+  width: 194px;
+  height: 37px;
+}
+.col-md-7 a {
+  text-decoration: underline;
+  color: #173b6b;
+  margin: 40px;
+}

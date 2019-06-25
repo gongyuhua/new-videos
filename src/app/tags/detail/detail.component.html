@@ -1,0 +1,36 @@
+<div class="col-md-12">
+  <div class="navbar-header">
+    <a class="navbar-brand" [routerLink]="video"
+      >Home/ > Videos of {{ videoType }}</a
+    >
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div
+    class="card"
+    class="col-md-4"
+    *ngFor="let v of itemList.results"
+    [routerLink]="['/webapp/video', v.videoId, v]"
+    (click)="playVideo(v)"
+  >
+    <img
+      src="{{ v.thumbNailJSON | slice: 70:118 }}"
+      class="card-img-top"
+      alt="..."
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ v.title }}</h5>
+      <p class="card-text">
+        {{ v.description }}
+      </p>
+      <p class="card-text">
+        {{ v.publishedDateTime }}
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- <div *ngFor="let v of itemList.results">
+  <div>{{ v.title }}</div>
+</div> -->

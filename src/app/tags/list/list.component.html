@@ -1,0 +1,21 @@
+<div class="panel-heading">TAGS</div>
+<div class="row">
+  <div class="col-xs-12">
+    <app-item
+      *ngFor="let tagEl of tagsList | keyvalue: valueOrder"
+      [tagItem]="tagEl"
+    ></app-item>
+  </div>
+</div>
+<!-- <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="panel-heading">TAGS</div>
+    <ul class="nav nav-stacked">
+      <li *ngFor="let item of tagsList | keyvalue">
+        <a class="list-group-item"
+          >{{ item.key }}<span>{{ item.value }}</span></a
+        >
+      </li>
+    </ul>
+  </nav>
+</div> -->
