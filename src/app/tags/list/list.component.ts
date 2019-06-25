@@ -9,7 +9,7 @@ import { KeyValue } from "@angular/common";
   styleUrls: ["./list.component.css"]
 })
 export class ListComponent implements OnInit {
-  tagsList;
+  tagsList = {};
   constructor(private service: VideoService) {}
 
   ngOnInit() {
@@ -23,9 +23,9 @@ export class ListComponent implements OnInit {
   //   return a.key > b.key ? -1 : (b.key > a.key ? 1 : 0);
   // }
   valueOrder = (
-    a: KeyValue<number, string>,
-    b: KeyValue<number, string>
+    a: KeyValue<string, number>,
+    b: KeyValue<string, number>
   ): number => {
-    return a.value.localeCompare(b.value);
+    return b.value - a.value;
   };
 }
