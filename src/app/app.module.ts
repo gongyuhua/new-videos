@@ -14,7 +14,6 @@ import { SortPipe } from "./pipe/sort.pipe";
 import { PlayComponent } from "./play/play.component";
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { PopupComponent } from "./play/popup/popup.component";
 import { FormsModule } from "@angular/forms";
 
 @NgModule({
@@ -27,8 +26,7 @@ import { FormsModule } from "@angular/forms";
     ListComponent,
     ItemComponent,
     SortPipe,
-    PlayComponent,
-    PopupComponent
+    PlayComponent
   ],
   imports: [
     BrowserModule,

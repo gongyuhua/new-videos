@@ -1,6 +1,5 @@
 import { VideoService } from "./../../service/video.service";
 import { Component, OnInit } from "@angular/core";
-import { SortPipe } from "../../pipe/sort.pipe";
 import { KeyValue } from "@angular/common";
 
 @Component({
@@ -23,9 +22,9 @@ export class ListComponent implements OnInit {
   //   return a.key > b.key ? -1 : (b.key > a.key ? 1 : 0);
   // }
   valueOrder = (
-    a: KeyValue<number, string>,
-    b: KeyValue<number, string>
+    a: KeyValue<string, number>,
+    b: KeyValue<string, number>
   ): number => {
-    return a.value.localeCompare(b.value);
+    return b.value - b.value;
   };
 }

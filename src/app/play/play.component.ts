@@ -1,7 +1,7 @@
 import { ActivatedRoute, Params } from "@angular/router";
-import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { PlayVideoService } from "../service/playVideo.service";
-import { Observable, Subject } from 'rxjs';
+import { Subject } from "rxjs";
 
 @Component({
   selector: "app-play",
@@ -9,9 +9,8 @@ import { Observable, Subject } from 'rxjs';
   styleUrls: ["./play.component.css"]
 })
 export class PlayComponent implements OnInit {
-
   showList;
-  title=new Subject();
+  title = new Subject();
   videoId;
   vType;
   description: string;
@@ -20,21 +19,18 @@ export class PlayComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private playService: PlayVideoService,
-    private change:ChangeDetectorRef
+    private playService: PlayVideoService
   ) {
     // this.route.params.subscribe((params: Params) => {
     //   this.youtubeId = params["videoId"];
     //   console.log(this.youtubeId);
     // });
-    this.title.next('hwllo')
-    this.playService.playVideoSelected.subscribe(v => {
-    
-      this.showList = v;
-      console.log(this.showList);
-      this.title.next(v.title) ;
-      console.log(this.title);
-    });
+    // this.playService.playVideoSelected.subscribe(v => {
+    //   this.showList = v;
+    //   console.log(this.showList);
+    //   this.title = v.title;
+    //   console.log(this.title);
+    // });
   }
 
   ngOnInit() {
@@ -57,5 +53,10 @@ export class PlayComponent implements OnInit {
     // this.route.queryParams.subscribe(params => {
     //   this.vType = params["TagValue"];
     // });
+    this.playService.playVideoSelected.subscribe(v => {
+      this.showList = v;
+      console.log(this.showList);
+      console.log(this.title);
+    });
   }
 }

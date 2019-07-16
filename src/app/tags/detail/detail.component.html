@@ -1,6 +1,6 @@
 <div class="col-md-12">
   <div class="navbar-header">
-    <a class="navbar-brand" [routerLink]="video"
+    <a class="navbar-brand" 
       >Home/ > Videos of {{ videoType }}</a
     >
   </div>
@@ -11,7 +11,7 @@
     class="card"
     class="col-md-4"
     *ngFor="let v of itemList.results"
-    [routerLink]="['/webapp/video', v.videoId, v]"
+    [routerLink]="['/webapp/video', v.videoId]"
     (click)="playVideo(v)"
   >
     <img

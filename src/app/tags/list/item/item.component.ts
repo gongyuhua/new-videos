@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { Router, ActivatedRoute } from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
 import { PlayVideoService } from "src/app/service/playVideo.service";
+import { Subject } from "rxjs";
 
 @Component({
   selector: "app-item",
@@ -9,6 +10,7 @@ import { PlayVideoService } from "src/app/service/playVideo.service";
 })
 export class ItemComponent implements OnInit {
   @Input() tagItem;
+  itemChanged = new Subject();
 
   constructor(
     private route: ActivatedRoute,
@@ -16,4 +18,7 @@ export class ItemComponent implements OnInit {
   ) {}
 
   ngOnInit() {}
+  getListByTagValue() {
+  //
+  }
 }

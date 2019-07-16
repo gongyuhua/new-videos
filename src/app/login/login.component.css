@@ -31,10 +31,8 @@ form {
 form h3 {
   font: 22px;
 }
-form button {
+input .btn-primary {
   background-color: #173b6b;
-  padding: 6px 8px;
-  width: 194px;
   height: 37px;
 }
 .col-md-7 a {

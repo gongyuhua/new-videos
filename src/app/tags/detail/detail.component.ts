@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { Post } from "src/app/post/post";
+import { Post } from "src/shared/post/post";
 import { VideoService } from "src/app/service/video.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Params } from "@angular/router";
 import { PlayVideoService } from "src/app/service/playVideo.service";
 import { fromEvent } from "rxjs";
 
@@ -12,24 +12,25 @@ import { fromEvent } from "rxjs";
 })
 export class DetailComponent implements OnInit {
   public http;
-  itemList: Post[];
+  itemList: any = [];
   videoType;
+  results;
+
   constructor(
     private service: VideoService,
     private route: ActivatedRoute,
     private playService: PlayVideoService
   ) {}
   ngOnInit() {
-    this.service.getList().subscribe(data => {
-      this.itemList = data;
-      console.log(this.itemList);
-    });
-    this.route.queryParams.subscribe(params => {
+    this.route.queryParams.subscribe((params: Params) => {
       this.videoType = params["TagValue"];
+      this.service.getListByTagValue(this.videoType).subscribe(data => {
+        this.itemList = data;
+      });
     });
   }
   playVideo(v) {
     console.log(v);
-    this.playService.playVideoSelected.emit(v);
+    this.playService.playVideoSelected.next(v);
   }
 }
