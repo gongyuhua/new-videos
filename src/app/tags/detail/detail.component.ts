@@ -1,9 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { Post } from "src/shared/post/post";
 import { VideoService } from "src/app/service/video.service";
 import { ActivatedRoute, Params } from "@angular/router";
 import { PlayVideoService } from "src/app/service/playVideo.service";
-import { fromEvent } from "rxjs";
 
 @Component({
   selector: "app-detail",
@@ -29,8 +27,7 @@ export class DetailComponent implements OnInit {
       });
     });
   }
-  playVideo(v) {
-    console.log(v);
-    this.playService.playVideoSelected.next(v);
+  playVideo(videocard) {
+    this.playService.playVideoSelected.next(videocard);
   }
 }

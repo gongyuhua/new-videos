@@ -2,6 +2,7 @@ import { ActivatedRoute, Params } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
 import { PlayVideoService } from "../service/playVideo.service";
 import { Subject } from "rxjs";
+import { DomSanitizer } from "@angular/platform-browser";
 
 @Component({
   selector: "app-play",
@@ -10,16 +11,14 @@ import { Subject } from "rxjs";
 })
 export class PlayComponent implements OnInit {
   showList;
-  title = new Subject();
-  videoId;
-  vType;
-  description: string;
-  publishedDateTime: string;
   youtubeId;
+  videoId;
+  videoUrl;
 
   constructor(
     private route: ActivatedRoute,
-    private playService: PlayVideoService
+    private playService: PlayVideoService,
+    private sanitizer: DomSanitizer
   ) {
     // this.route.params.subscribe((params: Params) => {
     //   this.youtubeId = params["videoId"];
@@ -39,24 +38,23 @@ export class PlayComponent implements OnInit {
     //   this.youtubeId = params["v"];
     //   console.log(this.youtubeId);
     // });
-    // this.route.params.subscribe(params => {
-    //   this.videoId = params["v.videoId"];
-    // });
-    // this.playService.playVideoSelected.subscribe(v => {
-    //   this.description = v.description;
-    //   this.youtubeId = v.youtubeVideoId;
-    //   this.title = v.title;
-    //   console.log(this.description);
-    //   console.log(this.youtubeId);
-    //   console.log(this.title);
-    // });
+    this.route.params.subscribe(params => {
+      this.videoId = params["v.videoId"];
+    });
     // this.route.queryParams.subscribe(params => {
     //   this.vType = params["TagValue"];
     // });
     this.playService.playVideoSelected.subscribe(v => {
       this.showList = v;
+      this.updateVideoUrl();
       console.log(this.showList);
-      console.log(this.title);
     });
+  }
+  updateVideoUrl() {
+    this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+      `https://www.youtube.com/embed/${
+        this.showList.youtubeVideoId
+      }?autoplay=1&rel=0`
+    );
   }
 }

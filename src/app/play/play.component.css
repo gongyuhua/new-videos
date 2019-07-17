@@ -2,3 +2,13 @@
   background-color: #173b6b;
   color: white;
 }
+.showList-date,
+.showList-description {
+  color: #999999;
+  font: 14px;
+  margin: 15px 0px 16px;
+}
+.showList-date {
+  color: #999999;
+  font: 14px;
+}

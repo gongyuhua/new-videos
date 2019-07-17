@@ -12,7 +12,7 @@
     class="col-md-4"
     *ngFor="let v of itemList.results"
     [routerLink]="['/webapp/video', v.videoId]"
-    (click)="playVideo(v)"
+    (click)="playVideo(v)" 
   >
     <img
       src="{{ v.thumbNailJSON | slice: 70:118 }}"

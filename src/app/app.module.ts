@@ -1,3 +1,4 @@
+import { SafePipe } from './pipe/safe.pipe';
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
@@ -16,6 +17,7 @@ import { PlayComponent } from "./play/play.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { FormsModule } from "@angular/forms";
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,8 @@ import { FormsModule } from "@angular/forms";
     ListComponent,
     ItemComponent,
     SortPipe,
-    PlayComponent
+    PlayComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,

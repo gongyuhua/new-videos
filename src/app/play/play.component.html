@@ -1,22 +1,19 @@
 <div class="col-md-12">
   <div class="navbar-header">
-    <a class="navbar-brand">Home/ {{ title }} </a>
+    <a class="navbar-brand">Home/ {{ showList.title }} </a>
   </div>
 </div>
 <div class="col-md-7">
-  <iframe
-    width="800"
-    height="484"
-    src="https://www.youtube.com/embed/2_jcpxx0Y_M"
-  >
-  </iframe>
+  <iframe width="800" height="484" [src]="videoUrl"> </iframe>
   <div>
     <h3>Similar Videos</h3>
   </div>
 </div>
 
 <div class="col-md-5">
-  <h2>{{ description }}</h2>
+  <h2>{{ showList.title }}</h2>
+  <span class="showList-date">{{ showList.publishedDateTime | date }}</span>
+  <p class="showList-description">{{ showList.description }}</p>
 
   <ul>
     <li>{{ vType }}</li>
@@ -25,7 +22,3 @@
     Request More Information {{ description }}
   </button>
 </div>
-
-<p>11{{ title }}</p>
-
-<p>{{ showList }}</p>
